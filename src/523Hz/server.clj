@@ -1,4 +1,4 @@
-(ns tumblr_music.server
+(ns 523Hz.server
   (:use noir.core)
   (:require [noir.server :as server]
             [noir.response :as response]

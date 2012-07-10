@@ -22,17 +22,22 @@
 (defn get_link [post]
   (get post :permalink_url))
 
-(defn filter_nils [posts]
+(defn get_links []
   (filter 
     (fn [x] (not= x nil)) 
-    (map get_link posts)))
+    (map get_link (get_posts))))
 
-(defn get_links []
-  (filter_nils (get_posts)))
+;;;
+;;; Routes
+;;;
 
 (defpage "/" []
   (response/json
     (get_links)))
+
+;;;
+;;; Main
+;;;
 
 (defn -main [& m]
   (let [mode (keyword (or (first m) :dev))
